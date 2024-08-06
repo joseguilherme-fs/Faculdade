@@ -1,0 +1,37 @@
+<div style="text-align:center">
+  <h1>
+    Gerenciamento de Livros
+  </h1>
+  <p> José Guilherme F. da Silva - 20221370012 </p>
+</div>
+
+<mat-card>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Título" [(ngModel)]="livro.titulo" name="titulo">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Autor" [(ngModel)]="livro.autor" name="autor">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Ano" [(ngModel)]="livro.ano" name="ano">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="editMode ? updateLivro() : addLivro()">
+      {{ editMode ? 'Atualizar Livro' : 'Adicionar Livro' }}
+    </button>
+  </form>
+</mat-card>
+
+<mat-card *ngFor="let livro of livros">
+  <mat-card-title>{{ livro.titulo }}</mat-card-title>
+  <mat-card-subtitle>{{ livro.autor }}</mat-card-subtitle>
+  <mat-card-content>
+    <p>Ano: {{ livro.ano }}</p>
+  </mat-card-content>
+  <button mat-icon-button color="accent" (click)="editLivro(livro)">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <button mat-icon-button color="warn" (click)="deleteLivro(livro.id)">
+    <mat-icon>delete</mat-icon>
+  </button>
+</mat-card>
