@@ -48,7 +48,7 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
         Text(
             text = message,
             fontSize = 36.sp,
-            lineHeight = 116.sp,
+            lineHeight = 117.sp,
         )
         Text(
             text = from,
